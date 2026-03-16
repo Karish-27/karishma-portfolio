@@ -1,123 +1,128 @@
-import { motion } from "framer-motion";
-import { BsArrowRight } from "react-icons/bs";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { HiArrowDownTray, HiEye } from "react-icons/hi2";
 
 import { fadeIn } from "../../variants";
-import { useState } from "react";
+
+const contactLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/Karish-27",
+    Icon: FaGithub,
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/karishma-kumavat-480891241",
+    Icon: FaLinkedinIn,
+    external: true,
+  },
+  {
+    label: "Mail Me",
+    href: "mailto:karishmakumavat27@gmail.com",
+    Icon: HiOutlineMail,
+    external: false,
+  },
+];
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-
-    const myForm = event.target;
-    const formData = new FormData(myForm);
-
-    fetch("/__forms.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Thank you. I will get back to you ASAP.");
-        } else {
-          console.log(res);
-        }
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
-  };
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   return (
     <div className="h-full bg-primary/30">
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
-        {/* text & form */}
-        <div className="flex flex-col w-full max-w-[700px]">
-          {/* text */}
+        <div className="flex flex-col w-full max-w-[700px] items-center">
+          {/* heading */}
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="h2 text-center mb-12"
+            className="h2 text-center mb-4"
           >
-            Let's <span className="text-accent">connect.</span>
+            Let&apos;s <span className="text-accent">connect.</span>
           </motion.h2>
 
-          {/* form */}
-          <motion.form
+          <motion.p
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="text-white/60 text-center mb-12 max-w-[400px]"
+          >
+            Feel free to reach out via any of the platforms below.
+          </motion.p>
+
+          {/* icons grid */}
+          <motion.div
             variants={fadeIn("up", 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="flex-1 flex flex-col gap-6 w-full mx-auto"
-            onSubmit={handleSubmit}
-            autoComplete="off"
-            autoCapitalize="off"
-            name="contact"
+            className="grid grid-cols-2 gap-6 w-full max-w-[400px]"
           >
-            {/* input group */}
-            <div className="flex gap-x-6 w-full">
-              <input type="hidden" name="form-name" value="contact" />
+            {contactLinks.map(({ label, href, Icon, external }) => (
+              <a
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer noopener" : undefined}
+                className="flex flex-col items-center gap-y-3 p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-accent hover:text-accent transition-all duration-300 group"
+              >
+                <Icon className="text-4xl group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm uppercase tracking-widest font-medium">
+                  {label}
+                </span>
+              </a>
+            ))}
 
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className="input"
-                disabled={isLoading}
-                aria-disabled={isLoading}
-                required
-                aria-required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="E-mail"
-                className="input"
-                disabled={isLoading}
-                aria-disabled={isLoading}
-                required
-                aria-required
-              />
+            {/* Resume card */}
+            <div className="relative">
+              <button
+                onClick={() => setResumeOpen((prev) => !prev)}
+                className="w-full flex flex-col items-center gap-y-3 p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-accent hover:text-accent transition-all duration-300 group"
+              >
+                <HiArrowDownTray className="text-4xl group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm uppercase tracking-widest font-medium">
+                  Resume
+                </span>
+              </button>
+
+              <AnimatePresence>
+                {resumeOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full mt-2 left-0 right-0 flex flex-col gap-y-2 z-10"
+                  >
+                    <a
+                      href="/resume.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="flex items-center justify-center gap-x-2 py-3 px-4 rounded-xl border border-white/10 bg-white/10 hover:border-accent hover:text-accent transition-all duration-300 text-sm font-medium"
+                      onClick={() => setResumeOpen(false)}
+                    >
+                      <HiEye className="text-lg" />
+                      View
+                    </a>
+                    <a
+                      href="/resume.pdf"
+                      download="Karishma_Kumavat_Resume.pdf"
+                      className="flex items-center justify-center gap-x-2 py-3 px-4 rounded-xl border border-white/10 bg-white/10 hover:border-accent hover:text-accent transition-all duration-300 text-sm font-medium"
+                      onClick={() => setResumeOpen(false)}
+                    >
+                      <HiArrowDownTray className="text-lg" />
+                      Download
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              className="input"
-              disabled={isLoading}
-              aria-disabled={isLoading}
-              required
-              aria-required
-            />
-            <textarea
-              name="message"
-              placeholder="Message..."
-              className="textarea"
-              disabled={isLoading}
-              aria-disabled={isLoading}
-              required
-              aria-required
-            />
-            <button
-              type="submit"
-              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
-              disabled={isLoading}
-              aria-disabled={isLoading}
-            >
-              <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                Let's talk
-              </span>
-
-              <BsArrowRight
-                className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
-                aria-hidden
-              />
-            </button>
-          </motion.form>
+          </motion.div>
         </div>
       </div>
     </div>

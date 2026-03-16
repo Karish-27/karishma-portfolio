@@ -29,8 +29,8 @@ const Work = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              tempora eligendi, quisquam tempore sint reiciendis.
+              A glimpse into some of the web applications I’ve built, 
+              focused on solving real problems with practical solutions.
             </motion.p>
           </div>
 

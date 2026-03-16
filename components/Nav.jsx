@@ -6,26 +6,18 @@ import {
   HiHome,
   HiUser,
   HiViewColumns,
-  HiRectangleGroup,
-  HiChatBubbleBottomCenterText,
-  HiEnvelope,
 } from "react-icons/hi2";
+import { FaLocationArrow } from "react-icons/fa6";
 
 // nav data
 export const navData = [
   { name: "home", path: "/", Icon: HiHome },
   { name: "about", path: "/about", Icon: HiUser },
-  { name: "services", path: "/services", Icon: HiRectangleGroup },
   { name: "work", path: "/work", Icon: HiViewColumns },
-  {
-    name: "testimonials",
-    path: "/testimonials",
-    Icon: HiChatBubbleBottomCenterText,
-  },
   {
     name: "contact",
     path: "/contact",
-    Icon: HiEnvelope,
+    Icon: FaLocationArrow,
   },
 ];
 
@@ -39,7 +31,7 @@ const Nav = () => {
           <Link
             className={`${
               link.path === pathname && "text-accent"
-            } relative flex items-center group hover:text-accent transition-all duration-300`}
+            } relative flex items-center group hover:text-accent transition-all duration-300 outline-none`}
             href={link.path}
             key={i}
           >

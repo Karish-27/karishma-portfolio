@@ -8,35 +8,36 @@ import { fadeIn } from "../variants";
 
 const Home = () => {
   return (
-    <div className="bg-primary/60 h-full">
+    <div className="h-full">
       {/* text */}
-      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
-        <div className="text-center flex flex-col justify-center xl:pt-40 xl:text-left h-full container mx-auto">
+      <div className="w-full h-full">
+        <div className="text-center flex flex-col justify-center xl:justify-start xl:pt-40 xl:text-left h-full container mx-auto">
           {/* title */}
-          <motion.h1
+          <motion.div
             variants={fadeIn("down", 0.2)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="h1"
+            className="mb-6"
           >
-            Transforming Ideas <br /> Into{" "}
-            <span className="text-accent">Digital Reality</span>
-          </motion.h1>
-
-          {/* subtitle */}
-          <motion.p
-            variants={fadeIn("down", 0.3)}
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
-          >
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate,
-            exercitationem harum, quia nulla temporibus deleniti libero veniam
-            vero beatae numquam ducimus illum ab similique ipsam tempore fugit
-            quod laudantium debitis.
-          </motion.p>
+            <h1 className="text-[42px] md:text-[64px] xl:text-[76px] font-bold uppercase leading-none tracking-tight">
+              Karishma
+            </h1>
+            <h1 className="text-[28px] md:text-[44px] xl:text-[52px] font-semibold uppercase leading-none tracking-tight mt-1">
+              Kumavat
+            </h1>
+            {/* divider line */}
+            <div className="w-1/2 h-[1px] bg-white/20 my-5" />
+            {/* subtitle */}
+            <div className="flex flex-col gap-[6px]">
+              <span className="text-accent text-xs md:text-sm uppercase tracking-[3px] font-medium">
+                A Creative
+              </span>
+              <span className="text-white text-base md:text-lg uppercase tracking-[2px] font-bold">
+                Web Developer
+              </span>
+            </div>
+          </motion.div>
 
           {/* btn */}
           <div className="flex justify-center xl:hidden relative">
@@ -47,7 +48,7 @@ const Home = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="hidden xl:flex"
+            className="hidden xl:flex justify-start mt-auto xl:mb-10"
           >
             <ProjectsBtn />
           </motion.div>
@@ -55,13 +56,6 @@ const Home = () => {
       </div>
       {/* image */}
       <div className="w-[1280px] h-full absolute right-0 bottom-0">
-        {/* bg img */}
-        <div
-          role="img"
-          className="bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0"
-          aria-hidden
-        />
-
         {/* particles */}
         <ParticlesContainer />
 

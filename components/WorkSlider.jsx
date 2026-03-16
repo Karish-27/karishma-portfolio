@@ -13,48 +13,29 @@ const workSlides = {
     {
       images: [
         {
-          title: "title",
-          path: "/thumb1.jpg",
-          link: "http://example.com",
+          title: "Noir Atelier",
+          path: "/noir.png",
+          link: "https://luxe-studio-ecommerce-jf69.vercel.app/",
         },
         {
-          title: "title",
-          path: "/thumb2.jpg",
-          link: "http://example.com",
+          title: "Krutik Portfolio",
+          path: "/krutik-portfolio.png",
+          link: "https://krutik-portfolio-beta.vercel.app/",
         },
         {
-          title: "title",
-          path: "/thumb3.jpg",
-          link: "http://example.com",
+          title: "WorkFlow",
+          path: "/workflow.png",
+          link: "https://workflow-app-amber.vercel.app/login",
         },
         {
-          title: "title",
-          path: "/thumb4.jpg",
-          link: "http://example.com",
-        },
-      ],
-    },
-    {
-      images: [
-        {
-          title: "title",
-          path: "/thumb4.jpg",
-          link: "http://example.com",
+          title: "NestPrime Real Estate",
+          path: "/realestate.png",
+          link: "https://real-estate-webiste-swart.vercel.app/",
         },
         {
-          title: "title",
-          path: "/thumb1.jpg",
-          link: "http://example.com",
-        },
-        {
-          title: "title",
-          path: "/thumb2.jpg",
-          link: "http://example.com",
-        },
-        {
-          title: "title",
-          path: "/thumb3.jpg",
-          link: "http://example.com",
+          title: "Aurelia Resort",
+          path: "/aurelia.png",
+          link: "https://aurelia-lyart.vercel.app/",
         },
       ],
     },
@@ -73,19 +54,19 @@ const WorkSlider = () => {
     >
       {workSlides.slides.map((slide, i) => (
         <SwiperSlide key={i}>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4">
+          <div className="grid grid-cols-2 gap-4" style={{ gridTemplateRows: "repeat(3, 1fr)" }}>
             {slide.images.map((image, imageI) => (
               <div
-                className="relative rounded-lg overflow-hidden flex items-center justify-center group"
+                className="relative rounded-lg overflow-hidden flex items-center justify-center group h-[80px] sm:h-[140px]"
                 key={imageI}
               >
-                <div className="flex items-center justify-center relative overflow-hidden group">
+                <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
                   {/* image */}
                   <Image
                     src={image.path}
                     alt={image.title}
-                    width={500}
-                    height={300}
+                    fill
+                    className="object-cover"
                   />
 
                   {/* overlay gradient */}

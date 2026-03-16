@@ -22,22 +22,23 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#131424",
+        primary: "#000000",
         secondary: "#393A47",
-        accent: "#F13024",
+        accent: "#7F40FF",
       },
       backgroundImage: {
         explosion: 'url("/bg-explosion.png")',
         circles: 'url("/bg-circles.png")',
         circleStar: 'url("/circle-star.svg")',
         site: 'url("/site-bg.svg")',
+        bg: 'url("/MAINBG.svg")',
       },
       animation: {
         "spin-slow": "spin 6s linear infinite",
       },
       fontFamily: {
         poppins: [`var(--font-poppins)`, "sans-serif"],
-        sora: [`var(--font-sora)`, "sans-serif"],
+        lexend: [`var(--font-lexend)`, "sans-serif"],
       },
     },
   },
