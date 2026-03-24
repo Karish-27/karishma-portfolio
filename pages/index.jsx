@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div className="h-full">
       {/* text */}
-      <div className="w-full h-full">
-        <div className="text-center flex flex-col justify-center xl:justify-start xl:pt-40 xl:text-left h-full container mx-auto">
+      <div className="w-full xl:h-full">
+        <div className="text-center flex flex-col justify-center xl:justify-start xl:pt-40 xl:text-left min-h-full xl:h-full container mx-auto pt-[90px] pb-[120px] xl:pt-0 xl:pb-0">
           {/* title */}
           <motion.div
             variants={fadeIn("down", 0.2)}
@@ -27,7 +27,7 @@ const Home = () => {
               Kumavat
             </h1>
             {/* divider line */}
-            <div className="w-1/2 h-[1px] bg-white/20 my-5" />
+            <div className="w-1/2 h-[1px] bg-white/20 my-5 mx-auto xl:mx-0" />
             {/* subtitle */}
             <div className="flex flex-col gap-[6px]">
               <span className="text-accent text-xs md:text-sm uppercase tracking-[3px] font-medium">
@@ -39,10 +39,24 @@ const Home = () => {
             </div>
           </motion.div>
 
-          {/* btn */}
-          <div className="flex justify-center xl:hidden relative">
-            <ProjectsBtn />
+          {/* mobile: btn + avatar stacked */}
+          <div className="flex xl:hidden flex-col items-center gap-6">
+            <div className="relative">
+              <ProjectsBtn />
+            </div>
+            <motion.div
+              variants={fadeIn("up", 0.5)}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="w-full max-w-[320px] h-[420px]"
+            >
+              <Avatar />
+            </motion.div>
           </div>
+
+          {/* desktop btn */}
           <motion.div
             variants={fadeIn("down", 0.4)}
             initial="hidden"
@@ -54,12 +68,10 @@ const Home = () => {
           </motion.div>
         </div>
       </div>
-      {/* image */}
-      <div className="w-[1280px] h-full absolute right-0 bottom-0">
-        {/* particles */}
-        <ParticlesContainer />
 
-        {/* avatar */}
+      {/* desktop: particles + avatar absolutely positioned */}
+      <div className="w-[1280px] h-full absolute right-0 bottom-0 hidden xl:block">
+        <ParticlesContainer />
         <motion.div
           variants={fadeIn("up", 0.5)}
           initial="hidden"
@@ -70,6 +82,11 @@ const Home = () => {
         >
           <Avatar />
         </motion.div>
+      </div>
+
+      {/* mobile particles (behind everything) */}
+      <div className="xl:hidden absolute inset-0 pointer-events-none">
+        <ParticlesContainer />
       </div>
     </div>
   );
