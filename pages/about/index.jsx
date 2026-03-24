@@ -3,11 +3,9 @@ import { useState } from "react";
 import CountUp from "react-countup";
 import {
   FaCss3,
-  FaFigma,
   FaHtml5,
   FaJs,
   FaReact,
-  FaWordpress,
   FaNodeJs,
   FaGitAlt
 } from "react-icons/fa";
@@ -84,10 +82,10 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="bg-primary/30 text-center xl:text-left xl:h-full">
       <Circles />
 
-      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row xl:items-start gap-x-6">
+      <div className="container mx-auto flex flex-col items-center xl:flex-row xl:items-start gap-x-6 pt-[100px] pb-[100px] xl:pt-32 xl:pb-32 xl:h-full">
         {/* text */}
         <div className="flex-1 flex flex-col justify-center xl:justify-start xl:pt-1">
           <motion.h2
@@ -148,7 +146,7 @@ const About = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="flex flex-col w-full xl:max-w-[48%] h-[480px]"
+          className="flex flex-col w-full xl:max-w-[48%] xl:h-[480px]"
         >
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemI) => (

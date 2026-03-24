@@ -31,8 +31,8 @@ const Contact = () => {
   const [resumeOpen, setResumeOpen] = useState(false);
 
   return (
-    <div className="h-full bg-primary/30">
-      <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
+    <div className="bg-primary/30 xl:h-full">
+      <div className="container mx-auto pt-[100px] pb-[100px] xl:py-32 text-center xl:text-left flex items-center justify-center xl:h-full">
         <div className="flex flex-col w-full max-w-[700px] items-center">
           {/* heading */}
           <motion.h2

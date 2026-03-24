@@ -50,14 +50,17 @@ const WorkSlider = () => {
         clickable: true,
       }}
       modules={[Pagination]}
-      className="h-[280px] sm:h-[480px]"
+      className="xl:h-full"
     >
       {workSlides.slides.map((slide, i) => (
         <SwiperSlide key={i}>
-          <div className="grid grid-cols-2 gap-4" style={{ gridTemplateRows: "repeat(3, 1fr)" }}>
+          <div
+            className="grid grid-cols-2 gap-4 xl:overflow-y-auto xl:max-h-[500px] no-scrollbar"
+            style={{ gridTemplateRows: "repeat(3, 1fr)" }}
+          >
             {slide.images.map((image, imageI) => (
               <div
-                className="relative rounded-lg overflow-hidden flex items-center justify-center group h-[80px] sm:h-[140px]"
+                className="relative rounded-lg overflow-hidden flex items-center justify-center group h-[160px] sm:h-[220px]"
                 key={imageI}
               >
                 <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
