@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="absolute z-30 w-full items-center px-16 xl-px-0 xl:h-[90px]">
-      <div className="container mx-auto">
-        <div className="flex py-8">
+    <header className="absolute z-30 w-full items-center xl:h-[90px]">
+      <div className="w-full">
+        <div className="flex py-8 pl-6">
           {/* logo */}
           <Link href="/">
             <Image

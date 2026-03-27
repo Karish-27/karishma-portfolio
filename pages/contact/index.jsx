@@ -100,7 +100,7 @@ const Contact = () => {
                     className="absolute top-full mt-2 left-0 right-0 flex flex-col gap-y-2 z-10"
                   >
                     <a
-                      href="/resume.pdf"
+                      href="/karishma_kumavat.pdf"
                       target="_blank"
                       rel="noreferrer noopener"
                       className="flex items-center justify-center gap-x-2 py-3 px-4 rounded-xl border border-white/10 bg-white/10 hover:border-accent hover:text-accent transition-all duration-300 text-sm font-medium"
