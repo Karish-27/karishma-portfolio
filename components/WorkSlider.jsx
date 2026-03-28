@@ -12,31 +12,32 @@ const workSlides = {
   slides: [
     {
       images: [
-        {
-          title: "Noir Atelier",
-          path: "/noir.png",
-          link: "https://luxe-studio-ecommerce-jf69.vercel.app/",
-        },
-        {
-          title: "Krutik Portfolio",
-          path: "/krutik-portfolio.png",
-          link: "https://krutik-portfolio-beta.vercel.app/",
+         {
+          title: "Aurelia Resort",
+          path: "/Aurelia_thumbnail.jpg",
+          link: "https://aurelia-lyart.vercel.app/",
         },
         {
           title: "WorkFlow",
-          path: "/workflow.png",
+          path: "/Workflow_thumbnail.jpg",
           link: "https://workflow-app-amber.vercel.app/login",
         },
         {
-          title: "NestPrime Real Estate",
-          path: "/realestate.png",
-          link: "https://real-estate-webiste-swart.vercel.app/",
+          title: "Noir Atelier",
+          path: "/Noir_Thumbnail.jpg",
+          link: "https://luxe-studio-ecommerce-jf69.vercel.app/",
         },
         {
-          title: "Aurelia Resort",
-          path: "/aurelia.png",
-          link: "https://aurelia-lyart.vercel.app/",
+          title: "NestPrime Real Estate",
+          path: "/Nestprime_thumbnail.jpg",
+          link: "https://real-estate-webiste-swart.vercel.app/",
         },
+         {
+          title: "Krutik Portfolio",
+          path: "/Krutik_thumbnail.jpg",
+          link: "https://krutik-portfolio-beta.vercel.app/",
+        },
+       
       ],
     },
   ],
